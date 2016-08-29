@@ -32,14 +32,9 @@ class CoditFestival2016 < Sinatra::Base
     erb :map, :layout => !request.pjax?
   end
   
-  get '/jungchul' do
-    erb :jungchul, :layout => !request.pjax?
-  end
-
   get '/about' do
     erb :about, :layout => !request.pjax?
   end
-
 
 
   not_found do
