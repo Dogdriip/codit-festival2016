@@ -22,14 +22,18 @@ class CoditFestival2016 < Sinatra::Base
     end
   end
 
+  # temp
   set :bind, '0.0.0.0'
 
-  get '/' do
+  get '/' do # 인덱스
     erb :index, :layout => !request.pjax?
   end
   
-  get '/map' do
-    erb :map, :layout => !request.pjax?
+  get '/booth' do # 부스 배치도 / 목록
+    erb :booth, :layout => !request.pjax?
+  end
+
+  get '/event' do
   end
   
   get '/about' do
@@ -37,8 +41,22 @@ class CoditFestival2016 < Sinatra::Base
   end
 
 
-  not_found do
-    erb :notfound
+
+
+
+  get '/qr/test' do
+    erb :'qr/test', :layout => !request.pjax?
   end
 
+
+
+
+
+  not_found do # 404 Not Found
+    erb :'err/404', :layout => !request.pjax?
+  end
+
+  error 500 do # 500 Internal Server Error
+    erb :'err/500', :layout => !request.pjax?
+  end
 end
