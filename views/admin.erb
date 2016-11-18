@@ -1,0 +1,28 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.0.9/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.0.9/jquery.mb.YTPlayer.min.js"></script>
+
+<script>
+window.onload = function(){
+      (function(){
+	jQuery.mbYTPlayer.apiKey = "AIzaSyAxZN-sl92ttPtBW5ROZrDYXeWGh3OnyNI";
+	var myVideo = jQuery('#player').YTPlayer();
+
+        var ws       = new WebSocket('ws://' + window.location.host + window.location.pathname);
+        ws.onopen    = function()  { alert('websocket opened'); };
+	/*
+	myVideo.on("YTPData", function(e){
+        	$("#title").text(e.prop.title);
+		ws.send(e.prop.title);
+        });
+	*/
+    })();
+}
+
+
+</script>
+
+<h1>** ADMIN PAGE **</h1>
+
+<div style="height: 500px;" id="player" class="player" data-property="{videoURL:'5hDZbroaQDc',containment:'self'}"></div>
+<h3>Now playing: <span id="title"></span></h3>
