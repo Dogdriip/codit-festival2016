@@ -1,2 +1,14 @@
+<script>
+
+window.onload = function(){
+      (function(){
+        var ws       = new WebSocket('ws://' + window.location.host + window.location.pathname);
+        ws.onmessage = function(msg) { $("#title").text(msg)  }; })();
+    }
+
+</script>
+
+
 <img id="main" src="images/tsumugi.png"></img>
 <h3>2016 행신제 CodIT 부스에 오신 것을 환영합니다!</h3>
+<h3>Now playing: <span id="title"></span></h3>
