@@ -14,8 +14,9 @@ class CoditFestival2016 < Sinatra::Base
     serve '/js', from: 'app/js'
     serve '/css', from: 'app/css'
     serve '/images', from: 'app/images'
+    serve '/fonts', from: 'app/fonts'
     js :application, [ '/js/jquery.min.js', '/js/underscore-min.js', '/js/backbone-min.js', '/js/*.js' ]
-    css :application, [ '/css/*.css' ]
+    css :application, [ '/css/grids-responsive-min.css', '/css/font-awesome.min.css', '/css/*.css' ]
     js_compression :jsmin
     css_compression :simple
   end
@@ -81,23 +82,60 @@ class CoditFestival2016 < Sinatra::Base
       end
     end
   end
-  
+
+
+
   get '/booth' do
     erb :booth, :layout => !request.pjax?
   end
 
+  get '/dashboard' do
+  end
+
   get '/event' do
-  end
-  
-  get '/about' do
-    erb :about, :layout => !request.pjax?
+    erb :event, :layout => !request.pjax?
   end
 
-  
-
-  get '/qr/test' do
-    erb :'qr/test', :layout => !request.pjax?
+  get '/aboutcodit' do
+    erb :aboutcodit, :layout => !request.pjax?
   end
+
+
+
+
+
+  # https://www.random.org/strings/?num=6&len=10&digits=on&upperalpha=on&loweralpha=on&unique=off&format=html&rnd=new
+  # DKRC7AfHgf
+  # WEXELr8qxG
+  # DPWHXyl6hI
+  # IYPhrpk5Xh
+  # OT62d13tTR
+  # oboZvyRpTM
+  get '/event/DKRC7AfHgf' do
+    erb :'event/left1'
+  end
+
+  get '/event/WEXELr8qxG' do
+    erb :'event/left1-2'
+  end
+
+  get '/event/DPWHXyl6hI' do
+    erb :'event/left2-3'
+  end
+
+  get '/event/IYPhrpk5Xh' do
+    erb :'event/mid1-2'
+  end
+
+  get '/event/OT62d13tTR' do
+    erb :'event/mid2-3'
+  end
+
+  get '/event/oboZvyRpTM' do
+    erb :'event/right2-3'
+  end
+
+
 
 
 
