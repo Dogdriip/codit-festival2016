@@ -62,7 +62,7 @@ class CoditFestival2016 < Sinatra::Base
     end
   end
 
-
+  # ===================================================== INDEX
   get '/' do
     if !request.websocket?
       erb :index, :layout => !request.pjax?
@@ -83,8 +83,7 @@ class CoditFestival2016 < Sinatra::Base
     end
   end
 
-
-
+  # ===================================================== MENUS(4)
   get '/booth' do
     erb :booth, :layout => !request.pjax?
   end
@@ -103,7 +102,7 @@ class CoditFestival2016 < Sinatra::Base
 
 
 
-
+  # ===================================================== NFC EVENT
   # https://www.random.org/strings/?num=6&len=10&digits=on&upperalpha=on&loweralpha=on&unique=off&format=html&rnd=new
   # DKRC7AfHgf
   # WEXELr8qxG
@@ -135,17 +134,12 @@ class CoditFestival2016 < Sinatra::Base
     erb :'event/right2-3'
   end
 
-
-
-
-
-
-
+  # ===================================================== ERR HANDLING
   not_found do # 404 Not Found
-    erb :'err/404', :layout => !request.pjax?
+    erb :'err/404'
   end
 
   error 500 do # 500 Internal Server Error
-    erb :'err/500', :layout => !request.pjax?
+    erb :'err/500'
   end
 end
